@@ -6,16 +6,19 @@
 
 /* 
  * File:   Customer.cpp
- * Author: MIGUEL
+ * Author: Johann sebastian Joya Beltran
+ * 201711476
  * 
  * Created on 20 de junio de 2020, 05:17 PM
  */
 
 #include "Customer.h"
 
+//
 Customer::Customer() {
 }
 
+//Constructor le agrego los valores.
 Customer::Customer(string idcustomer, string firstname, string lastname, string phone) {
 
     Customer::Idcustomer = idcustomer;
@@ -25,6 +28,7 @@ Customer::Customer(string idcustomer, string firstname, string lastname, string 
     
 }
 
+//Implementacion de los metodos GET Y SET.
 string Customer::getId(){
     
     return Idcustomer;
@@ -65,16 +69,21 @@ void Customer::setPhone(string phone){
     this->phone = phone;
 }
 
+//Implementacion del metodo agregar cuenta
+
 void Customer::Addaccount(Account * account){
     
     accounts.push_back(account);
 }
 
+//implmento metodo que me retorna las cuentas 
+//que tiene el cliente
 vector<Account*> Customer::getAccounts(){
     
     return vector<Account*>(Customer::accounts);
 }
 
+//metodo que concateno los atributos de la clase
 string Customer::toString(){
     
     return "Id Customer => " + Idcustomer + " First Name => " + firstname +  " Last Name => " + lastname +  " Phone => " + phone + "\n";

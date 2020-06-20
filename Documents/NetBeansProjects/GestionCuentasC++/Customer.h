@@ -21,11 +21,13 @@
 using namespace std;
 
 class Account;
-
+//Archivo de cabecera
+//Implementacion de la clase Cliente
 class Customer {
     
 public:
     
+    //implementacion de los metodos publicos.
     Customer();
     Customer(string,string,string,string);
     void setId(string);
@@ -43,6 +45,8 @@ public:
     
 private:
 
+    //Declaracion de los atributos privados de la clase Cliente
+    
     string Idcustomer;
     string firstname;
     string lastname;

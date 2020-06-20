@@ -18,6 +18,7 @@ using namespace std;
 
 const double Account::minresidue = 100000;
 
+//inicializo los valores del contructor.
 Account::Account() {
     this->number = "";
     this->customer = NULL;
@@ -26,6 +27,7 @@ Account::Account() {
     this->withdrawals = 0;
 }
 
+//implemento el constructor con sus respectivos valores
 Account::Account(Customer * customer, string number, double residue) {
     
     setCustomer(customer);
@@ -35,6 +37,8 @@ Account::Account(Customer * customer, string number, double residue) {
     this->withdrawals = 0;
     
 }
+
+//implrmrntacion metodos GET Y SET
 
 string Account::getNumber(){
     
@@ -75,12 +79,17 @@ void Account::setResidue(double residue){
     Account::residue = residue;
 }
 
+//Implementacion del metodo para consignar
+//recibe por parametro el valor a consignar
 void Account::Consigment(double value){
  
     setResidue(getResidue() + value);
     consigments++;
 } 
 
+
+//Implementacion del metodo para retirar
+//recibe por parametro el valor a retirar
 bool Account::Withdraw(double value){
     if(value <= getResidue() - minresidue){
         setResidue(getResidue() - value);
@@ -91,6 +100,9 @@ bool Account::Withdraw(double value){
     return false;
 }
 
+
+//Implementacion del metodo para transferir
+//recibe por parametro la cuenta a transferir y el valor a transferir
 bool Account::Transferir(Account * account, double value){
     if(Withdraw(value)){
         account->Consigment(value);
@@ -100,6 +112,7 @@ bool Account::Transferir(Account * account, double value){
     return false;
 }
 
+//implementacion del metodo que me convierte un numero en una cadena String
 string Account::parseString(double value){
     ostringstream aux;
     aux<<value;
@@ -107,11 +120,13 @@ string Account::parseString(double value){
     return aux.str();
 }
 
+//implementacion del metodo para concatenar los atributos
 string Account::toString(){
     
     return "Number Account => " + number + " Residue Account " + parseString(residue) + " WithDraw " + parseString(withdrawals) + " Consigments " + parseString(consigments) + "\n";
     
 }
+
 Account::~Account() {
 }
 

@@ -6,7 +6,8 @@
 
 /* 
  * File:   Account.h
- * Author: MIGUEL
+ * Author: Johann Sebastian Joya Beltran
+ * 201711476
  *
  * Created on 20 de junio de 2020, 05:16 PM
  */
@@ -19,11 +20,13 @@
 
 using namespace std;
 class Customer;
-
+//Archivo cabecera.
+//implementacion de la clase cuenta.
 class Account {
     
 public:
     
+    //implementacion de los metodos publicos.
     const static double minresidue;
     Account();
     Account(Customer*,string,double);
@@ -43,6 +46,9 @@ public:
     virtual ~Account();
     
 private:
+
+    
+    //Declaracion de los atributos privados de la clase Cuenta
 
     string number;
     double residue;
